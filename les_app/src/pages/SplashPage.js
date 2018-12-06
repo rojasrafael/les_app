@@ -69,7 +69,7 @@ class SplashPage extends React.Component {
 	render(){
 		return(
 			<View style={estilo.container} onPress={ () => this.props.navigation.navigate("Login") }>
-				<Image source = {require('../img/watch.png')} style={estilo.centro} />
+				<Image source={require('../img/watch.png')} style={estilo.centro} />
 				<View>
 					<Text style={[estilo.centro, estilo.textoknow]}>clocktime</Text>
 				</View>
@@ -87,7 +87,7 @@ const estilo = StyleSheet.create ({
 		height: "100%",
 		backgroundColor: "#fff",
 		paddingLeft: 10,
-		paddingRight: 10,
+		paddingRight: 10
 	},
 	centro: {
 		marginTop: "50%",
@@ -99,7 +99,7 @@ const estilo = StyleSheet.create ({
 		fontSize: 30,
 		backgroundColor: "#fff",
 		fontWeight: "bold",
-		color: "blue"
+		color: "#7094db"
 	}
 });
 
