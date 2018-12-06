@@ -1,25 +1,16 @@
-// ROUTER VAI GUARDAR TODA A NOSSA LOGICA DE ROTEAMENTE - TODAS AS PAGINAS ESTARAO LA
-
-// import { StackNavigator }from "react-navigation";
+//Rota das páginas
 import { createStackNavigator, TabNavigator } from "react-navigation";
 import PaginaLogin from "./pages/PaginaLogin";
-import FuncionariosPage from "./pages/FuncionariosPage";
-//import SeriesPage from "./pages/SeriesPage";
-//import SeriesDetailPage from "./pages/SeriesDetailPage";
+import FuncionariosPage from "./pages/FuncionariosPage";//import SeriesPage from "./pages/SeriesPage";
 import SplashPage from "./pages/SplashPage";
 import PaginaCompetencias from "./pages/PaginaCompetencias";
-import CurriculoListPage from "./pages/CurriculoListPage";
+import Home from "./pages/Home";
 import CurriculoDetail from "./pages/CurriculoDetail";
 import PaginaCompetenciaPessoa from "./pages/PaginaCompetenciaPessoa";
 import CompetenciaPessoaDetail from "./pages/CompetenciaPessoaDetail";
 import FuncionarioDetailPage from "./pages/FuncionarioDetailPage";
 import maiusculaPrimLetra from "./util/maiusculaPrimeiraLetra";
 
-/*2 parametros
-- config das paginas
-- Objeto de configuração - Configuração default de todas as paginas
-*/
-// export default StackNavigator({
 export default createStackNavigator({
   "SplashPage": {
     screen: SplashPage,
@@ -31,21 +22,23 @@ export default createStackNavigator({
     screen: PaginaLogin,
     navigationOptions: {
       header: null,
-      title: "Login",
       alignSelf: "center",
     }
   },
   /* Pagina Curriculo com as Abas */
   PaginaCurriculo: {
+    //clocktime: {
     screen: TabNavigator({
       Home: {
-        screen: CurriculoListPage,
+        screen: Home,
+        //screen: Relogio,
         navigationOptions: ({ navigation }) => ({
-          title: 'Currículos',
+          title: 'Home',
         }),
       },
       funcionarios: {
         screen: FuncionariosPage,
+        //screen: GerenciaHoras,
         navigationOptions: ({ navigation }) => ({
           title: 'Funcionários',
           header: null
@@ -57,10 +50,6 @@ export default createStackNavigator({
           title: 'Competências',
         }),
       },
-    }),
-    navigationOptions: ({ navigation }) => ({
-      title: 'Lista de Curriculos',
-      header: null
     }),
   },
   /*"PaginaPrincipal": {

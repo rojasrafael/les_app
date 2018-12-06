@@ -98,9 +98,8 @@ const estilo = StyleSheet.create ({
 		marginTop: 10,
 		fontSize: 30,
 		backgroundColor: "#fff",
-		fontFamily: ""
 		fontWeight: "bold",
-		fontColor: "blue"
+		color: "blue"
 	}
 });
 

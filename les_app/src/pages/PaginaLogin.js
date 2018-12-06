@@ -260,7 +260,7 @@ class PaginaLogin extends React.Component {
 					<Image source = {require('../img/watch.png')} style={estilo.centro} />
 				</View>
 				<View>
-					<Text style={estilo.textoknow}>Knowhow</Text>
+					<Text style={estilo.textoknow}>clocktime</Text>
 				</View>
 				<View style={{flex: 1, justifyContent: "center"}} >
 				<LinhaFormulario primeiro>
