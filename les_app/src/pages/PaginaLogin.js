@@ -257,7 +257,7 @@ class PaginaLogin extends React.Component {
 			<View style={estilo.container}>
 			<StatusBar hidden={true} />
 				<View>
-					<Image source = {require('../img/know_hat.png')} style={estilo.centro} />
+					<Image source = {require('../img/watch.png')} style={estilo.centro} />
 				</View>
 				<View>
 					<Text style={estilo.textoknow}>Knowhow</Text>

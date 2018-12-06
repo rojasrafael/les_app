@@ -1,5 +1,5 @@
 import React from "react";
-import { NavigationActions  }from "react-navigation";
+import { NavigationActions } from "react-navigation";
 import {
 	StyleSheet,
 	View,
@@ -11,7 +11,7 @@ import {
     Image,
 
 } from "react-native";
-import PaginaLogin from "./PaginaLogin";
+import Home from "./Home";
 import LinhaFormulario from "../components/LinhaFormulario";
 import firebase from "firebase";
 
@@ -69,9 +69,9 @@ class SplashPage extends React.Component {
 	render(){
 		return(
 			<View style={estilo.container} onPress={ () => this.props.navigation.navigate("Login") }>
-				<Image source = {require('../img/know_hat.png')} style={estilo.centro} />
+				<Image source = {require('../img/watch.png')} style={estilo.centro} />
 				<View>
-					<Text style={[estilo.centro, estilo.textoknow]}>Knowhow</Text>
+					<Text style={[estilo.centro, estilo.textoknow]}>clocktime</Text>
 				</View>
 				{/* <Button
 					title="Go111 to Details"
@@ -98,7 +98,9 @@ const estilo = StyleSheet.create ({
 		marginTop: 10,
 		fontSize: 30,
 		backgroundColor: "#fff",
-		fontWeight: "bold"
+		fontFamily: ""
+		fontWeight: "bold",
+		fontColor: "blue"
 	}
 });
 
