@@ -66,7 +66,7 @@ class PaginaLogin extends React.Component {
 				.then(usuario => {
 					if (usuario) {
 						// this.props.navigation.navigate("PaginaPrincipal"); // O "replace" APAGA O HISTORICO DE NAVEGAÇÃO, ENTAO NAO TERA A "SETINHA" PARA VOLTAR A PAGINA
-						return this.props.navigation.replace("PaginaCurriculo");
+						return this.props.navigation.replace("Home");
 					}
 
 					this.setState({

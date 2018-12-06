@@ -1,12 +1,8 @@
 import React from "react";
 import {StyleSheet, View, Text, Image, TouchableOpacity} from "react-native";
 
-// import maiusculaPrimLetra from "../util/maiusculaPrimLetra";
-/*PARA IMPORTAR COMO DESTRUCT IGUAL ACIMA "import {StyleSheet} from ... ; É NECESSARIO COLOCAR A PASTA PARA O NODE IMPORTAR NO CASO: "util" QUE É ONDE ESTÁ A FUNÇÃO
-É NECESSARIO ADICIONAR A IMPORTAÇÃO NUM ARQUIVO CHAMADO "index.js" QUE É ONDE O NODE JS PROCURA A PASTA IMPORTADA*/
 import { maiusculaPrimLetra } from "../util";
 
-// const CompetenciaItem = props => {
 class CompetenciaItem extends React.Component {
     constructor (props) {
         super (props);
@@ -22,7 +18,7 @@ class CompetenciaItem extends React.Component {
     }
 
     render () {
-        // const {competencias, irParaDetalhes} = props;
+        
         const {competencias, irParaDetalhes} = this.props;
         
         return (
