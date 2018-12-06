@@ -33,6 +33,7 @@ export default createStackNavigator({
         screen: Home,
         //screen: GerenciaHoras,
         navigationOptions: ({ navigation }) => ({
+          header: null,
           title: 'Overview'
         }),
       },
@@ -40,6 +41,7 @@ export default createStackNavigator({
         screen: FuncionariosPage,
         //screen: Relogio,
         navigationOptions: ({ navigation }) => ({
+          header: null,
           title: 'Clockar'
         }),
       },
@@ -50,7 +52,7 @@ export default createStackNavigator({
           title: 'Competências',
         }),
       },*/
-    }),
+    })
   },
 
   "DetalheCurriculo": {
