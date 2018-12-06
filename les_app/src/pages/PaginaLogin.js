@@ -85,7 +85,7 @@ class PaginaLogin extends React.Component {
 		this.setState({ estaCarregando: true, mensagem: "" });
 		const { email, senha } = this.state;
        //Facilitador do login - excluir em prod
-		this.props.navigation.replace("PaginaCurriculo");
+		this.props.navigation.replace("Home");
 		return;
 
 		/* COLANDO TODO ESSE CODIGO COMENTADO EM "userActions.js"
