@@ -26,48 +26,33 @@ export default createStackNavigator({
     }
   },
   /* Pagina Curriculo com as Abas */
-  PaginaCurriculo: {
+   "Home": {
     //clocktime: {
     screen: TabNavigator({
-      Home: {
+    funcionarios: {
         screen: Home,
-        //screen: Relogio,
-        navigationOptions: ({ navigation }) => ({
-          title: 'Home',
-        }),
-      },
-      funcionarios: {
-        screen: FuncionariosPage,
         //screen: GerenciaHoras,
         navigationOptions: ({ navigation }) => ({
-          title: 'Funcionários',
-          header: null
+          title: 'Overview'
         }),
       },
-      competencias: {
+      home: {
+        screen: FuncionariosPage,
+        //screen: Relogio,
+        navigationOptions: ({ navigation }) => ({
+          title: 'Clockar'
+        }),
+      },
+      
+      /*competencias: {
         screen: PaginaCompetencias,
         navigationOptions: ({ navigation }) => ({
           title: 'Competências',
         }),
-      },
+      },*/
     }),
   },
-  /*"PaginaPrincipal": {
-    screen: SeriesPage
-  },
-  "PaginaDetalhe": {
-    screen: SeriesDetailPage,
-    // navigationOptions: {
-    //   title: "Página de Detalhes"
-    // }
-    navigationOptions: ({ navigation }) => {
-      const { serie } = navigation.state.params;
-      return {
-          // title: "Página de Detalhes"
-          title: serie.title
-      }
-    }
-  },*/
+
   "DetalheCurriculo": {
     screen: CurriculoDetail,
     navigationOptions: ({navigation}) => {
@@ -132,18 +117,6 @@ export default createStackNavigator({
     }
   },
 
-},{
-  navigationOptions: {
-    title: "Series!",
-    headerTintColor: "#fff",
-    headerStyle: {
-      // backgroundColor: "#20144D",
-      borderBottomWidth: 1,
-      borderBottomColor: "#C5C5C5",
-    },
-    headerTitleStyle: {
-      color: "#000",
-      fontSize: 30
-    }
-  }
-});
+},
+
+);
