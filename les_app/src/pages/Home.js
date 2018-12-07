@@ -45,7 +45,8 @@ const styles = {
     padding: 20,
     borderStyle: "solid",
     borderBottomColor: "black",
-    borderBottomWidth: 1
+    borderBottomWidth: 1,
+    fontSize: 30
   }
 }
 
