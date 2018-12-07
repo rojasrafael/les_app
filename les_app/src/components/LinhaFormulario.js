@@ -19,9 +19,9 @@ const LinhaFormulario = props => {
 
 const estilo = StyleSheet.create({
 	container: {
-		padding:10,
+		padding:2,
 		backgroundColor: "#fff",
-		marginTop: 5,
+		marginTop: 2,
 		marginBottom: 5,
 		elevation: 1,
 	},

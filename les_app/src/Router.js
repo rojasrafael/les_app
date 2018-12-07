@@ -33,15 +33,13 @@ export default createStackNavigator({
         screen: Home,
         //screen: GerenciaHoras,
         navigationOptions: ({ navigation }) => ({
-          header: null,
-          title: 'Overview'
+          title: 'Projetos'
         }),
       },
       home: {
         screen: FuncionariosPage,
         //screen: Relogio,
         navigationOptions: ({ navigation }) => ({
-          header: null,
           title: 'Clockar'
         }),
       },

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, DatePickerAndroid, TouchableWithoutFeedback, TimePickerAndroid, Button } from 'react-native';
+import { Alert, View, Text, DatePickerAndroid, TouchableWithoutFeedback, TimePickerAndroid, Button } from 'react-native';
 
 import moment from "moment"
 
@@ -8,12 +8,11 @@ const styles = {
     flex: 1,
     backgroundColor: "white",
     justifyContent: "space-evenly",
-    padding: 10,
     alignItems: "center",
     fontSize: 30
   },
   button: {
-    width: 250,
+    width: 400,
     color: "#adc2eb",
     fontSize: 35
   }
@@ -33,16 +32,22 @@ export class EventCreator extends React.Component {
       <View style={styles.container} >
         <TouchableWithoutFeedback onPress={() => this.setState({ isDatePickerVisible: true })} >
           <View
-            style={{ marginBottom: 20, marginTop: 20, fontSize: 30 }}
+            style={{
+              marginBottom: 20, marginTop: 20, fontSize: 30, borderStyle: "solid",
+              borderBottomColor: "black",
+              borderBottomWidth: 1, }}
           >
-            <Text >Data de Nascimento</Text>
+            <Text >Data de Inserção</Text>
             <Text >{`${date}`}</Text>
             {this.renderDatePicker()}
           </View>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={() => this.setState({ isTimePickerVisible: true })} >
           <View
-            style={{ marginBottom: 20, marginTop: 20, fontSize: 20}}
+            style={{
+              marginBottom: 20, marginTop: 20, fontSize: 20, borderStyle: "solid",
+              borderBottomColor: "black",
+              borderBottomWidth: 1,}}
           >
             <Text >Hora</Text>
             <Text >{`${time}`}</Text>
@@ -52,8 +57,8 @@ export class EventCreator extends React.Component {
         <Button
           title="Clockar"
           style={styles.button}
-          onPress={() => {}}
-        />
+          onPress={() => { Alert.alert('Registro realizado!');}}
+                       />
       </View>
     )
   }

@@ -69,7 +69,7 @@ class SplashPage extends React.Component {
 	render(){
 		return(
 			<View style={estilo.container} onPress={ () => this.props.navigation.navigate("Login") }>
-				<Image source={require('../img/watch.png')} style={estilo.centro} />
+				<Image source={require('../img/watch.png')} style={estilo.image} />
 				<View>
 					<Text style={[estilo.centro, estilo.textoknow]}>clocktime</Text>
 				</View>
@@ -90,9 +90,18 @@ const estilo = StyleSheet.create ({
 		paddingRight: 10
 	},
 	centro: {
-		marginTop: "50%",
+		marginTop: 230,
+		marginRight: 'auto',
+		marginLeft: 'auto'
+	},
+	image: {
+		marginTop: 230,
 		marginRight: 'auto',
 		marginLeft: 'auto',
+		aspectRatio: 1, // ESSA PROPRIEDADE É PARA QUE O REACT NÃO DISTORÇA A IMAGEM, OU SEJA MANTEM A PROPORÇÃO
+		width: 15,
+		borderRadius: 15
+
 	},
 	textoknow: {
 		marginTop: 10,

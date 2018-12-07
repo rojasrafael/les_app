@@ -51,6 +51,7 @@ const ListaPessoas = props => {
 
 const estilo = StyleSheet.create({
 	container:{
+		paddingTop: 10,
 		backgroundColor: "#e7f6fd"
 	}
 });

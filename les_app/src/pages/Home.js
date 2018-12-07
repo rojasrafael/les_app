@@ -11,6 +11,54 @@ const event = [
     hours: "12h"
   },
   {
+    name: "Nike",
+    hours: "16h"
+  },
+  {
+    name: "Adidas",
+    hours: "18h"
+  },
+  {
+    name: "Reebok",
+    hours: "20h"
+  },
+  {
+    name: "Osklen",
+    hours: "22h"
+  },
+  {
+    name: "Nike",
+    hours: "16h"
+  },
+  {
+    name: "Adidas",
+    hours: "18h"
+  },
+  {
+    name: "Reebok",
+    hours: "20h"
+  },
+  {
+    name: "Osklen",
+    hours: "22h"
+  },
+  {
+    name: "Nike",
+    hours: "16h"
+  },
+  {
+    name: "Adidas",
+    hours: "18h"
+  },
+  {
+    name: "Reebok",
+    hours: "20h"
+  },
+  {
+    name: "Osklen",
+    hours: "22h"
+  },
+  {
     name: "Magazine Luiza",
     hours: "40h"
   },
@@ -35,18 +83,20 @@ const event = [
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: "white"
+    paddingTop: 2,
+    backgroundColor: " #f5f5f0"
   },
   listContainer: {
-    height: 100,
+    height: 70,
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
-    padding: 20,
+    padding: 5,
     borderStyle: "solid",
-    borderBottomColor: "black",
+    borderBottomColor: "#f5f5f0",
     borderBottomWidth: 1,
-    fontSize: 30
+    fontSize: 30,
+    fontWeight: "bold"
   }
 }
 
