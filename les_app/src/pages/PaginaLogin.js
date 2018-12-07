@@ -192,7 +192,7 @@ const estilo = StyleSheet.create ({
 		marginLeft: 'auto'
 	},
 	textoknow: {
-		fontSize: 40,
+		fontSize: 30,
 		fontWeight: "bold",
 		marginRight: 'auto',
 		marginLeft: 'auto',
