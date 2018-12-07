@@ -1,11 +1,14 @@
 {
   "expo": {
+    "name": "clocktime",
+    "versionCode": "1.0.1",
+    "permissions": [],
+    "icon": "./src/img/watch.png",
     "sdkVersion": "27.0.0",
+    "version": "1.0.0",
+    "slug": "clocktime-slug",
     "android":{
-    	"package": "com.rojas.meuapp",
-    	"versionCode": 1,
-    	"permissions": [],
-    	"icon": "./src/img/watch.png"
+    	"package": "com.rojas.meuapp"
     }
   }
 }
