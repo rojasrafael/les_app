@@ -9,11 +9,13 @@ const styles = {
     backgroundColor: "white",
     justifyContent: "space-evenly",
     padding: 10,
-    alignItems: "center"
+    alignItems: "center",
+    fontSize: 30
   },
   button: {
     width: 250,
-    color: "#adc2eb"
+    color: "#adc2eb",
+    fontSize: 35
   }
 }
 export class EventCreator extends React.Component {
@@ -31,7 +33,7 @@ export class EventCreator extends React.Component {
       <View style={styles.container} >
         <TouchableWithoutFeedback onPress={() => this.setState({ isDatePickerVisible: true })} >
           <View
-            style={{ marginBottom: 20, marginTop: 20 }}
+            style={{ marginBottom: 20, marginTop: 20, fontSize: 30 }}
           >
             <Text >Data de Nascimento</Text>
             <Text >{`${date}`}</Text>
@@ -40,7 +42,7 @@ export class EventCreator extends React.Component {
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={() => this.setState({ isTimePickerVisible: true })} >
           <View
-            style={{ marginBottom: 20, marginTop: 20 }}
+            style={{ marginBottom: 20, marginTop: 20, fontSize: 20}}
           >
             <Text >Hora</Text>
             <Text >{`${time}`}</Text>
