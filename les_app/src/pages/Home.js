@@ -3,32 +3,32 @@ import { View, Text, ScrollView } from 'react-native';
 
 const event = [
   {
-    name: "projeto1",
-    hours: "100h"
+    name: "Casas Bahia",
+    hours: "10h"
   },
   {
-    name: "projeto2",
-    hours: "120h"
+    name: "Pontofrio",
+    hours: "12h"
   },
   {
-    name: "projeto3",
-    hours: "140h"
+    name: "Magazine Luiza",
+    hours: "40h"
   },
   {
-    name: "projeto4",
-    hours: "160h"
+    name: "Nike",
+    hours: "16h"
   },
   {
-    name: "projeto5",
-    hours: "180h"
+    name: "Adidas",
+    hours: "18h"
   },
   {
-    name: "projeto6",
-    hours: "200h"
+    name: "Reebok",
+    hours: "20h"
   },
   {
-    name: "projeto7",
-    hours: "220h"
+    name: "Osklen",
+    hours: "22h"
   }
 ]
 
