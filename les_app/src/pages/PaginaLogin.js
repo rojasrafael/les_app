@@ -47,34 +47,7 @@ class PaginaLogin extends React.Component {
 		firebase.initializeApp(config);
 
 	}
-
-	// fn_atualiza_valor_simult(valor) {
-		// this.setState ({
-			// email: valor,
-		// })
-	// }
-	// fn_atualiza_senha_simult(senha) {
-		// this.setState ({ 		senha: senha
-		// })
-	// }
-	// OU
-
 	fnMudouInput(referencia, valor) {
-
-		//	const newState = {};
-
-		//	/*referencia == "email" ? this.setState({
-		//		email: valor,
-		//	});*/
-
-		//	/*busca a propriedade em tempo de execução - só qdo recebe o valor da variável*/
-
-		//	// o objeto newState vai buscar uma propriedade cujo valor é igual a referencia recebida
-		// newState[referencia] = value;
-		//	this.setState(newState);
-
-		//OU
-
 		this.setState({
 			[referencia]: valor
 		});
@@ -88,107 +61,6 @@ class PaginaLogin extends React.Component {
 		this.props.navigation.replace("Home");
 		return;
 
-		/* COLANDO TODO ESSE CODIGO COMENTADO EM "userActions.js"
- 		// CRIANDO FUNÇÕES PARA O LOGIN
-		const loginSucesso = usuario => {
-			this.setState({ mensagem: "Sucesso!" });
-
-			// LEMBRANDO QUE O OBJETO "navigation É DA LIB IMPORTADA "react-navigation, EM QUE ELE IMPORTA AS PROPS
-			this.props.navigation.navigate("paginaPrincipal");
-		}
-		const loginFracasso = erro => {
-			this.setState({ mensagem: this.getMensagemPeloCodigoDeErro(erro.code) });
-		}
-
-
-
-		firebase
-			.auth()
-			// .signInWithEmailAndPassword("teste@teste.com","12341234")
-			.signInWithEmailAndPassword(email, senha)
-			.then(//usuario => {
-				// console.log("Usuario autenticado!", usuario);
-				// this.setState({ mensagem: "Sucesso!" });
-				// OU
-				// UTILIZANDO A FUNÇÃO ACIMA PARA DEIXAR O CODIGO MENOS POLUIDO
-				// }
-				loginSucesso
-			)
-			.catch(erro => {
-
-				if(erro.code === "auth/user-not-found"){
-					//Alert - classe que o React Native //nos expoe
-					//alert - metodo dentro da class //Alert
-					//	- recebe 4 parametros
-					//		- titulo,
-					//		- mensagem,
-					//		- Array de botões - recebem objetos - como text, onPress, Style
-					//		- Objeto de configuração
-
-					
-					Alert.alert("Usuário não encontrado", "Deseja criar um novo cadastro, com as informações fornecidas*-?",
-						// se tiver 2 botoes o primeiro botão será negativo e o segundo positivo
-						[{
-							text: "Não",
-							onPress: () => {
-								console.log("Usuario não quer criar uma conta");
-								style: "cancel" // Apenas para o IOS
-							}
-						},{
-							text: "Sim",
-							onPress: () => {
-								firebase
-									.auth()
-									.createUserWithEmailAndPassword(email, senha)
-									.then(//usuario => {
-										// console.log("Usuario autenticado!", usuario);
-										// this.setState({ mensagem: "Sucesso!" });
-										// OU
-										// UTILIZANDO A FUNÇÃO ACIMA PARA DEIXAR O CODIGO MENOS POLUIDO
-										// }
-										loginSucesso
-									)
-									.catch(
-										// erro => {
-											// this.setState({
-												// mensagem: this.getMensagemPeloCodigoDeErro(this.code)
-											// })
-										// }
-										// OU
-										// UTILIZANDO A FUNÇÃO ACIMA PARA DEIXAR O CODIGO MENOS POLUIDO
-										// }
-										loginFracasso(erro)
-									)
-							}
-						}],
-						// Não permite cancelar - ou clicar fora do alert para sumi-la
-						{ cancelable: false }
-						);
-				} else {
-
-					// console.log("Usuario nao encontrado!", erro);
-					// this.setState({ mensagem: "Nao foi possivel logar!" })
-					// OU
-					// USANDO A MSG DEFAULT DO FIREBASE
-
-					// this.setState({ mensagem: erro.message });
-					// OU
-					// AO INVES DE TRAZER A MENSAGEM DE ERRO, QUE ESTA EM IGLES, É MAIS INTERESSANTE TRAZER O COIGO DO ERRO, PARA TRATAR NUM IF E TRAZER A MENSAGEM TRATADA PARA O PORTUGUES
-					// PODERA VIR 2 TIPOS DE CODIGOS DE ERRO
-					// - auth/wrong-password
-					// - auth/user-not-found
-
-					// this.setState({
-						// mensagem: this.getMensagemPeloCodigoDeErro(erro.code)
-					// });
-					// OU
-					// UTILIZANDO A FUNÇÃO ACIMA PARA DEIXAR O CODIGO MENOS POLUIDO
-					loginFracasso(erro)
-				}
-			})
-			.then(() => this.setState({ estaCarregando: false })); */
-
-			/* ENVIANDO ATRAVES DA PROPS O OBJETO "{ email, senha }" PARA A ACTION "actions/userAction.js" */
 			this.props.tentaLogar({ email, senha })
 				// .then(() => {
 				.then(usuario => {
@@ -231,7 +103,7 @@ class PaginaLogin extends React.Component {
 			return <ActivityIndicator />;
 		return (
 			<Button 
-				style={{marginTop: 55}}
+				style={{ marginTop: 55 },{color: "#adc2eb"}}
 				title="Entrar" 
 				onPress={() => this.tentaLogarLocal()}
 				/>
@@ -257,10 +129,10 @@ class PaginaLogin extends React.Component {
 			<View style={estilo.container}>
 			<StatusBar hidden={true} />
 				<View>
-					<Image source = {require('../img/know_hat.png')} style={estilo.centro} />
+					<Image source = {require('../img/watch.png')} style={estilo.centro} />
 				</View>
 				<View>
-					<Text style={estilo.textoknow}>Knowhow</Text>
+					<Text style={estilo.textoknow}>clocktime</Text>
 				</View>
 				<View style={{flex: 1, justifyContent: "center"}} >
 				<LinhaFormulario primeiro>
@@ -320,10 +192,11 @@ const estilo = StyleSheet.create ({
 		marginLeft: 'auto'
 	},
 	textoknow: {
-		fontSize: 30,
+		fontSize: 40,
 		fontWeight: "bold",
 		marginRight: 'auto',
-		marginLeft: 'auto'
+		marginLeft: 'auto',
+		color: "#7094db"
 	}
 });
 

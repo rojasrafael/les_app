@@ -1,25 +1,16 @@
-// ROUTER VAI GUARDAR TODA A NOSSA LOGICA DE ROTEAMENTE - TODAS AS PAGINAS ESTARAO LA
-
-// import { StackNavigator }from "react-navigation";
+//Rota das páginas
 import { createStackNavigator, TabNavigator } from "react-navigation";
 import PaginaLogin from "./pages/PaginaLogin";
-import FuncionariosPage from "./pages/FuncionariosPage";
-//import SeriesPage from "./pages/SeriesPage";
-//import SeriesDetailPage from "./pages/SeriesDetailPage";
+import FuncionariosPage from "./pages/FuncionariosPage";//import SeriesPage from "./pages/SeriesPage";
 import SplashPage from "./pages/SplashPage";
 import PaginaCompetencias from "./pages/PaginaCompetencias";
-import CurriculoListPage from "./pages/CurriculoListPage";
+import Home from "./pages/Home";
 import CurriculoDetail from "./pages/CurriculoDetail";
 import PaginaCompetenciaPessoa from "./pages/PaginaCompetenciaPessoa";
 import CompetenciaPessoaDetail from "./pages/CompetenciaPessoaDetail";
 import FuncionarioDetailPage from "./pages/FuncionarioDetailPage";
 import maiusculaPrimLetra from "./util/maiusculaPrimeiraLetra";
 
-/*2 parametros
-- config das paginas
-- Objeto de configuração - Configuração default de todas as paginas
-*/
-// export default StackNavigator({
 export default createStackNavigator({
   "SplashPage": {
     screen: SplashPage,
@@ -31,54 +22,39 @@ export default createStackNavigator({
     screen: PaginaLogin,
     navigationOptions: {
       header: null,
-      title: "Login",
       alignSelf: "center",
     }
   },
   /* Pagina Curriculo com as Abas */
-  PaginaCurriculo: {
+   "Home": {
+    //clocktime: {
     screen: TabNavigator({
-      Home: {
-        screen: CurriculoListPage,
+    funcionarios: {
+        screen: Home,
+        //screen: GerenciaHoras,
         navigationOptions: ({ navigation }) => ({
-          title: 'Currículos',
+          header: null,
+          title: 'Overview'
         }),
       },
-      funcionarios: {
+      home: {
         screen: FuncionariosPage,
+        //screen: Relogio,
         navigationOptions: ({ navigation }) => ({
-          title: 'Funcionários',
-          header: null
+          header: null,
+          title: 'Clockar'
         }),
       },
-      competencias: {
+      
+      /*competencias: {
         screen: PaginaCompetencias,
         navigationOptions: ({ navigation }) => ({
           title: 'Competências',
         }),
-      },
-    }),
-    navigationOptions: ({ navigation }) => ({
-      title: 'Lista de Curriculos',
-      header: null
-    }),
+      },*/
+    })
   },
-  /*"PaginaPrincipal": {
-    screen: SeriesPage
-  },
-  "PaginaDetalhe": {
-    screen: SeriesDetailPage,
-    // navigationOptions: {
-    //   title: "Página de Detalhes"
-    // }
-    navigationOptions: ({ navigation }) => {
-      const { serie } = navigation.state.params;
-      return {
-          // title: "Página de Detalhes"
-          title: serie.title
-      }
-    }
-  },*/
+
   "DetalheCurriculo": {
     screen: CurriculoDetail,
     navigationOptions: ({navigation}) => {
@@ -143,18 +119,6 @@ export default createStackNavigator({
     }
   },
 
-},{
-  navigationOptions: {
-    title: "Series!",
-    headerTintColor: "#fff",
-    headerStyle: {
-      // backgroundColor: "#20144D",
-      borderBottomWidth: 1,
-      borderBottomColor: "#C5C5C5",
-    },
-    headerTitleStyle: {
-      color: "#000",
-      fontSize: 30
-    }
-  }
-});
+},
+
+);

@@ -1,116 +1,117 @@
 import React from 'react';
-import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
+import { View, Text, DatePickerAndroid, TouchableWithoutFeedback, TimePickerAndroid, Button } from 'react-native';
 
-/*NÃO SERA MAIS USADO ESSE COMPONENTE, POIS ESTAMOS USANDO UM COMPONENTE PROPRIO PARA NAVEGAÇÃO*/
-// import Cabecalho from "../components/Cabecalho";
-import FuncionariosList from "../components/FuncionariosList";
+import moment from "moment"
 
-import axios from "axios"; /* agora ja tenho acesso ao objeto axios
-AXIOS - É COMO A CHAMADA "AJAX" - CHAMADA DE PROMISE
-O CALLBACK ("success:") - É O ".then"
-"error:" - ".rejected"
-*/
-
-export default class FuncionariosPage extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      pessoas: [],
-      loading: false,
-      deuErro: false // ESTAMOS SETANDO UM VALOR "false" PADRÃO, ABAIXO MUDAMOS CASO NECESS
-    }
+const styles = {
+  container: {
+    flex: 1,
+    backgroundColor: "white",
+    justifyContent: "space-evenly",
+    padding: 10,
+    alignItems: "center"
+  },
+  button: {
+    width: 250,
+    color: "#adc2eb"
   }
-
-
-  /*VAMOS COLOCAR O OBJETO AXIOS NA FUNÇÇÃO componentDidMount() DO REACT - É UM EVENTO DO TIPO "onReady"*/
-  componentDidMount() {
-    this.setState({ loading: true });
-
-    // Agendando uma função (a chamada get) para ser executada dps de 1500 ms (1,5 s)
-    // setTimeout(() => {
-      axios
-        /*get - FAZENDO A CHAMADA ASSINCRONA*/
-        .get("https://randomuser.me/api/?nat=br&results=15") // Trazendo 150 registros
-        /*then - CALL BACK
-        response é passado pelo axios*/
-        .then(response => {
-          const { results } = response.data;
-          this.setState({
-            pessoas: results,
-            loading: false
-          })
-        }).catch(error => { // FZD UM HANDLER PRA CAPTURAR O ERRO
-          this.setState({ 
-            deuErro: true,
-            loading: false
-          })
-        });
-    // }, 1500);
+}
+export class EventCreator extends React.Component {
+  state = {
+    isDatePickerVisible: false,
+    isTimePickerVisible: false,
+    date: "DD/MM/YYYY",
+    time: "HH:mm"
   }
+  
+  render () {
+    const { date, time } = this.state;
 
-  carregandoLoading() {
-    /*if(this.state.loading){
-      // ActivityIndicator recebe 2 params
-      //           - size
-      //           - color
-      return (<ActivityIndicator size="large" color="#6ca2f7" />);      
-    }else{
-      return null;
-    }*/
-  }
-
-  render() {
-    // ENVIADA ESSA FUNÇÃO PARA: F:\kiu\Projetos\ReactNative\listaDePessoas\src\components\FuncionariosListItem.js
-    // this.props.navigation.navigate(/* Chave da página */, /* state */)
-    // this.props.navigation.navigate("ChaveDetalhePessoas");
     return (
-      <View style={estilo.container}>
-        {/*<Cabecalho
-          titulo="Usuários"
-        />*/}
-
-        {/*{ this.carregandoLoading() }*/}
-        {/*OU
-          AO INVES DE CHAMAR A FUNÇÃO, COLOCA A LOGICA AQUI MESMO */}
-            { this.state.loading == true ? <ActivityIndicator size="large" color="#6ca2f7" /> 
-
-            // : null
-
-            : this.state.deuErro ? <Text>Ops... Algo deu errado</Text> 
-              : <FuncionariosList 
-                pessoas={this.state.pessoas}          
-                //clicouItem={() => {
-                //  this.props.navigation.navigate("ChaveDetalhePessoas")
-                //}}
-
-                /*this.props.navigation.navigate("ChaveDetalhePessoas")
-                Esse navigate() recebe 2 parametros
-                - a chave da pagina (nome/id) que foi declarado no App.js
-                - um parametro que volta para o Navigation do App.js em que podemos setar o titulo da pagina por ex
-                
-                - Entao vamos passar o parametro "paginaParams" tb*/
-                clicouItem={paginaParams => {
-                  this.props.navigation.navigate("DetalheFuncionario", paginaParams) /* Esse "paginaParams" foi para a Router.js - vamos acessar atraves do objeto "navigation" - navigationOptions: ({navigation})
-                  - Assim que passamos dados de uma pagina para outra
-                  */
-                }}
-              />
-            }
-
+      <View style={styles.container} >
+        <TouchableWithoutFeedback onPress={() => this.setState({ isDatePickerVisible: true })} >
+          <View
+            style={{ marginBottom: 20, marginTop: 20 }}
+          >
+            <Text >Data de Nascimento</Text>
+            <Text >{`${date}`}</Text>
+            {this.renderDatePicker()}
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={() => this.setState({ isTimePickerVisible: true })} >
+          <View
+            style={{ marginBottom: 20, marginTop: 20 }}
+          >
+            <Text >Hora</Text>
+            <Text >{`${time}`}</Text>
+            {this.renderTimePicker()}
+          </View>
+        </TouchableWithoutFeedback>
+        <Button
+          title="Clockar"
+          style={styles.button}
+          onPress={() => {}}
+        />
       </View>
-    );
+    )
+  }
+
+  renderDatePicker = () => {
+    const { isDatePickerVisible } = this.state;
+
+    if (!isDatePickerVisible) return null;
+
+    try {
+      DatePickerAndroid.open({
+        mode: 'spinner',
+        date: new Date(),
+        maxDate: new Date()
+      })
+        .then(({action, year, month, day}) => {
+          if (action === DatePickerAndroid.dismissedAction) {
+            this.setState({ isDatePickerVisible: false, date: "DD/MM/YYYY" })
+            return;
+          }          
+
+          const date = new Date(year, month, day)
+
+          const momentDate = moment(date).format('DD/MM/YYYY')
+
+          this.setState({ date: momentDate, isDatePickerVisible: false })
+        })
+    } catch (err) {
+      return null
+    }
+
+    return null
+  }
+
+  renderTimePicker = () => {
+    const { isTimePickerVisible } = this.state;    
+
+    if (!isTimePickerVisible) return null;    
+
+    try {
+      TimePickerAndroid.open({
+        hour: 0,
+        minute: 0,
+        is24Hour: true,
+        mode: "clock"
+      }).then(({action, hour, minute}) => {        
+        if (action === TimePickerAndroid.dismissedAction) {          
+          this.setState({ isTimePickerVisible: false, time: "HH:mm" });
+          return;
+        }
+  
+        this.setState({ time: `${hour}:${minute}`, isTimePickerVisible: false })
+      })
+    } catch (err) {
+      
+      return null
+    }
+    
+    return null
   }
 }
 
-const estilo = StyleSheet.create ({
-  container: {
-    flex:1, // OCUPA TODA A TELA
-    justifyContent:"center" // CENTRALIZA EIXO Y - TECNICA DO FLEXBOX
-  },
-  erro: {
-    color: "red",
-    alignSelf: "center", // CENTRALIZA EIXO X - TECNICA DO FLEXBOX
-    fontSize: 18
-  }
-})
+export default EventCreator;
